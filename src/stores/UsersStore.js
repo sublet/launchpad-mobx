@@ -31,15 +31,15 @@ export default class UsersStore {
   }
 
   @action fetchUsers () {
-    // TODO this is a dummy URL to illustrate an async request via axios (promise-based)
-    console.log('using a fake api call')
-    return axios.get('/fake-api-call')
+    const _this = this
+    return axios.get('some_fake_api_endpoint')
       .then(function (response) {
-        this.replaceUsers(mockUsers)
+        console.log(response.data);
+        _this.replaceUsers(mockUsers)
         return this.users
       })
       .catch(() => {
-        this.replaceUsers(mockUsers)
+        _this.replaceUsers(mockUsers)
         return this.users
       })
   }

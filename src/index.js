@@ -1,29 +1,38 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { enter } from 'react-router-promises'
 import { Provider } from 'mobx-react'
 import App from './components/App'
-import EditUser from './components/EditUser'
-import UsersStore from './stores/UsersStore'
+import StandardList from './components/stories/StandardList'
+import OriginalsList from './components/stories/OriginalsList'
+import PodcastsList from './components/stories/PodcastsList'
+import StoryDetail from './components/stories/StoryDetail'
+import StoriesStore from './stores/StoriesStore'
 
 import './styles/index.scss'
 
-const stores = { usersStore: new UsersStore() }
+const stores = { storiesStore: new StoriesStore() }
 
-const fetchUsers = stores.usersStore.fetchUsers()
-const onEnterApp = () => fetchUsers
 const onEnterUser = (nextState) => {
-  fetchUsers.then(() =>
-    stores.usersStore.setActiveUser(nextState.params.userId)
-  )
+  stores.storiesStore.fetchStories()
+    .then(function() {
+      stores.storiesStore.setActiveStory(nextState.params.story_name)
+      stores.storiesStore.fetchStoryDetail()
+        .then((data) =>
+          console.log('Data Inside: ', data)
+        )
+    })
 }
 
 render(
   <Provider {...stores}>
     <Router history={browserHistory}>
-      <Route path='/' component={App} onEnter={enter(onEnterApp)}>
-        <Route path='/user/:userId' component={EditUser} onEnter={onEnterUser} />
+      <Route path='/' component={App}>
+        <IndexRoute component={StandardList} storyType="" />
+        <Route path='/originals/' component={OriginalsList} storyType="barstool_original" />
+        <Route path='/podcasts/' component={PodcastsList} storyType="podcasts" />
+        <Route path='/:category/:story_name' component={StoryDetail} onEnter={onEnterUser} />
       </Route>
     </Router>
   </Provider>,

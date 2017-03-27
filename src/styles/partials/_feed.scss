@@ -1,0 +1,158 @@
+
+
+.barstool_feed {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #efefef;
+  @media screen and (min-width: 480px) {
+    background: transparent;
+  }
+}
+
+.barstool_feed__row {
+  a {
+    text-decoration: none;
+  }
+}
+
+
+.barstool_feed__row__image {
+
+}
+
+.barstool_feed__row__meta {
+  @include clearfix;
+  margin: 0 0 5px;
+  padding: 0 14px;
+  font-size: .8rem;
+  font-weight: 600;
+  &--tag {
+    float: left;
+    i {
+      margin-right: 6px;
+      color: $blue_dark;
+    }
+    color: $red;
+    text-transform: uppercase;
+  }
+  &--author {
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    padding-left: 10px;
+    color: #666;
+    &:before {
+      content: "";
+      @include position(absolute, 2px null null 0px);
+      height: 12px;
+      width: 1px;
+      background: #999;
+    }
+  }
+  &--time_ago {
+    margin-left: 10px;
+    float: left;
+    color: #CCC;
+    font-weight: 400;
+  }
+  &--comments {
+    float: right;
+    color: #CCC;
+    i {
+      margin-left: 4px;
+    }
+  }
+}
+
+.barstool_feed__row__title {
+  margin: 0;
+  padding: 0 14px;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 600;
+  color: $blue_dark;
+  font-size: 1.5rem;
+  line-height: 24px;
+  @media screen and (min-width: 480px) {
+    font-size: 2rem;
+    line-height: 34px;
+  }
+}
+
+.barstool_feed__row {
+  position: relative;
+  margin-bottom: 10px;
+  background: #FFF;
+  border-bottom: 1px solid #CCC;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  min-height: 143px;
+  header {
+    padding: 8px 0;
+    @media screen and (min-width: 480px) {
+      padding: 14px 0;
+    }
+  }
+  a {
+    color: #222;
+  }
+
+  &--standard_post {
+    header {
+      padding-left: 200px;
+    }
+    .barstool_feed__row__image {
+      @include position(absolute, 0px null null 0px);
+    }
+  }
+
+  &--barstool_original {
+
+    .barstool_feed__row__image {
+      width: 100%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+  }
+
+  &--podcast {
+    width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &--date_header {
+
+  }
+
+  .barstool_feed__row__content {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    p {
+      margin: 1em 0;
+    }
+  }
+
+}
+
+.feed_load_more {
+  display: block;
+  height: 40px;
+  border: 2px solid $red;
+  color: $red;
+  line-height: 40px;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  &:hover {
+    background: $red;
+    color: #FFF;
+  }
+}

@@ -1,5 +1,21 @@
 @import '../../node_modules/normalize.css/normalize.css';
 @import '../../node_modules/bulma/bulma.sass';
+@import '../../node_modules/bourbon/app/assets/stylesheets/bourbon';
+@import '../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+
+@import "partials/vars";
+
+.kill--list {
+  @include clearfix;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  &.float--list {
+    li {
+      float: left;
+    }
+  }
+}
 
 body {
   margin: 0;
@@ -10,16 +26,26 @@ body {
   max-width: 1224px;
 }
 
-.users {
-  background-color: lightseagreen;
-  padding: 2rem;
+header {
+  padding: 2rem 0;
+}
 
-  .user {
-    cursor: pointer;
+.stories__container {
+
+}
+
+.sidebar__container {
+  display: none;
+  min-width: 320px;
+  @include breakpoint($tablet-lrg-bp) {
+    display: block;
   }
 }
 
-.workspace {
-  background-color: lightslategray;
-  padding: 2rem;
+.stories__container__section_nav {
+  li {
+    margin-right: $universal_padding;
+  }
 }
+
+@import "partials/feed";

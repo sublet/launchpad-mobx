@@ -30,7 +30,7 @@ const production = {
   output: {
     path: path.join(__dirname, 'www'),
     filename: '[name].js',
-    publicPath: 'http://localhost:8080/'
+    publicPath: 'http://localhost:8081/'
   },
   resolve: {
     extensions: ['', '.js']
@@ -83,7 +83,7 @@ if (isDevelopment) {
     ],
     devServer: {
       host: '0.0.0.0',
-      port: '8080', // 8080 is default
+      port: '8081', // 8081 is default
       historyApiFallback: true
     }
   })
