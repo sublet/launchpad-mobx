@@ -9,10 +9,10 @@ import StoryCell from '../../components/stories/StoryCell'
 @inject('storiesStore')
 @observer class OriginalsList extends Component {
 
-  componentDidMount() {
-    const { storiesStore } = this.props
-    storiesStore.fetchOriginals()
-  }
+  // componentDidMount() {
+  //   const { storiesStore } = this.props
+  //   storiesStore.fetchOriginals()
+  // }
 
   render () {
     const { storiesStore } = this.props

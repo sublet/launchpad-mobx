@@ -10,8 +10,9 @@ import StoryCell from '../../components/stories/StoryCell'
 @observer class PodcastsList extends Component {
 
   componentDidMount() {
-    const { storiesStore, route } = this.props
-    storiesStore.fetchStories()
+    console.log('Props: ', this.props)
+    // const { storiesStore, route } = this.props
+    // storiesStore.fetchStories()
   }
 
   render () {
