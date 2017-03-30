@@ -32,15 +32,6 @@ const onEnterStory = (nextState, replaceState, callback) => {
     .catch((error) => {
       callback(error)
     })
-
-  // stores.storiesStore.fetchStories()
-  //   .then(function() {
-  //     stores.storiesStore.setActiveStory(nextState.params.story_name)
-  //     stores.storiesStore.fetchStoryDetail()
-  //       .then((data) =>
-  //         console.log('Data Inside: ', data)
-  //       )
-  //   })
 }
 
 const onEnterFeatured = (nextState, replaceState, callback) => {
